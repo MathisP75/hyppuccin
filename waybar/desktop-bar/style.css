@@ -1,0 +1,161 @@
+@import "../colors/mocha.css";
+
+* {
+  font-family: SFPro;
+  font-size: 17px;
+}
+
+window#waybar {
+  background-color: @crust;
+  color: @text;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  transition-duration: .5s;
+  margin: 16px 16px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0;
+  margin: 7px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: @text;
+}
+
+#workspaces button {
+  color: @text;
+  background: @background3;
+  border-radius: 8px;
+  padding: 0px 10px 0px 10px;
+  margin: 7px 10px 10px 0px;
+  border: 1px solid @border;
+}
+
+#workspaces button.active {
+  color: @crust;
+  background: @overlay2;
+  border: none; 
+}
+
+#custom-launcher,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-powermenu{
+  padding: 0px 20px;
+  margin: 7px 0px 10px 0px;
+  color: #e5e5e5;
+	border-radius: 8px;
+  background-color: #181B28;
+  /* border: 2px solid rgba(24, 27, 40, 1.0); */
+}
+
+#window,
+
+#custom-launcher {
+  padding: 0px 25px 0px 20px;
+  margin: 7px 0px 10px 20px;
+  color: #0C0E14;
+  background-color: @mauve;
+}
+
+#cpu {
+  color: #0C0E14;
+  background-color: @lavender;
+}
+
+#memory{
+  color: #0C0E14;
+  background-color: @blue;
+}
+
+#temperature{
+  color: #0C0E14;
+  background-color: @sapphire;
+}
+
+#backlight {
+  color: #0C0E14;
+  background-color: @sky;
+}
+
+#pulseaudio {
+  color: #0C0E14;
+  background-color: @teal;
+}
+
+#network {
+  color: #0C0E14;
+  background-color: @green;
+}
+
+#battery {
+  color: #0C0E14;
+  background-color: @yellow;
+}
+
+#clock {
+  color: #0C0E14;
+  background-color: @peach;
+}
+
+#custom-powermenu {
+  color: #0C0E14;
+  padding: 0px 25px 0px 20px;
+  margin: 7px 20px 10px 0px;
+  background-color: @maroon;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+
