@@ -62,6 +62,7 @@ window#waybar.hidden {
 #tray,
 #mode,
 #idle_inhibitor,
+#custom-dunst,
 #custom-powermenu{
   padding: 0px 20px;
   margin: 7px 0px 10px 0px;
@@ -92,21 +93,29 @@ window#waybar.hidden {
 
 #temperature{
   color: #0C0E14;
-  background-color: @sapphire;
+  background-color: @blue;
 }
 
 #backlight {
   color: #0C0E14;
+  background-color: @sapphire;
+}
+
+#custom-dunst {
+  color: #0C0E14;
+  padding: 0px 20px 0px 13px;
   background-color: @sky;
 }
 
 #pulseaudio {
   color: #0C0E14;
+  padding: 0px 20px 0px 17px;
   background-color: @teal;
 }
 
 #network {
   color: #0C0E14;
+  padding: 0px 15px 0px 20px;
   background-color: @green;
 }
 

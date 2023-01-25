@@ -130,6 +130,23 @@
     "on-scroll-down": "playerctl previous",
     },
 
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "all-outputs": "false",
+        "icon-size": 14,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize",
+        "ignore-list": [
+           "Alacritty"
+        ],
+        "app_ids-mapping": {
+          "firefoxdeveloperedition": "firefox-developer-edition"
+        }
+    },
+
     "battery": {
       "bat": "BAT0",
       "adapter": "ADP0",

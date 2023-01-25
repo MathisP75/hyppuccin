@@ -4,7 +4,7 @@
     "layer": "top",
     "position": "top",
     "spacing": 7, // Gaps between modules (4px)
-    "modules-left": ["custom/launcher", "cpu", "memory", "temperature", "backlight"],
+    "modules-left": ["custom/launcher", "cpu", "temperature", "backlight", "custom/dunst"],
     "modules-center": ["wlr/workspaces"],
     "modules-right": ["pulseaudio", "network", "battery", "clock", "custom/powermenu"],
 
@@ -61,11 +61,9 @@
     },
 
     "temperature": {
-        // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-        // "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C ",
-        "format": " {temperatureC}°C"
+        "format": " {temperatureC}°C",
+	"on-click": "psensor"
     },
 
     "backlight": {
@@ -112,13 +110,20 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click-right": "pavucontrol",
+	"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
    
     "custom/powermenu": {
         "format": "",
         "on-click": "bash ~/.config/wofi/powermenu.sh"
     }, 
+
+   "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "on-click": "dunstctl set-paused toggle",
+        "restart-interval": 1
+    },
    
    "custom/spotify": {
     "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
