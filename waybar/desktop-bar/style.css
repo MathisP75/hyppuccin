@@ -1,5 +1,11 @@
 @import "../colors/mocha.css";
 
+/* margin: top right bottom left */
+/* Spacing outside the element */
+
+/* padding: top right bottom left */
+/* Spacing inside the element */
+
 * {
   font-family: SFPro;
   font-size: 17px;
@@ -20,27 +26,17 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  box-shadow: inset 0 -3px transparent;
-  border: none;
-  border-radius: 0;
-  margin: 7px;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
-  color: @text;
-}
-
-#workspaces button {
   color: @text;
   background: @background3;
   border-radius: 8px;
   padding: 0px 10px 0px 10px;
-  margin: 7px 10px 10px 0px;
+  margin: 7px 5px 10px 5px;
   border: 1px solid @border;
+}
+
+#workspaces button:hover {
+  background: @surface0;
+  color: @text;
 }
 
 #workspaces button.active {
@@ -53,21 +49,17 @@ window#waybar.hidden {
 #clock,
 #battery,
 #cpu,
-#memory,
 #temperature,
 #backlight,
 #network,
 #pulseaudio,
-#tray,
-#mode,
-#idle_inhibitor,
+#memory,
+#custom-dunst,
 #custom-powermenu{
   padding: 0px 20px;
   margin: 7px 0px 10px 0px;
-  color: #e5e5e5;
 	border-radius: 8px;
-  background-color: #181B28;
-  /* border: 2px solid rgba(24, 27, 40, 1.0); */
+  color: @crust;
 }
 
 #window,
@@ -75,68 +67,49 @@ window#waybar.hidden {
 #custom-launcher {
   padding: 0px 25px 0px 20px;
   margin: 7px 0px 10px 20px;
-  color: #0C0E14;
   background-color: @mauve;
 }
 
 #cpu {
-  color: #0C0E14;
   background-color: @lavender;
 }
 
-#memory{
-  color: #0C0E14;
+#temperature{
   background-color: @blue;
 }
 
-#temperature{
-  color: #0C0E14;
+#memory {
   background-color: @sapphire;
 }
 
-#backlight {
-  color: #0C0E14;
+#custom-dunst {
+  padding: 0px 20px 0px 13px;
   background-color: @sky;
 }
 
 #pulseaudio {
-  color: #0C0E14;
+  padding: 0px 20px 0px 17px;
   background-color: @teal;
 }
 
 #network {
-  color: #0C0E14;
+  padding: 0px 15px 0px 20px;
   background-color: @green;
 }
 
 #battery {
-  color: #0C0E14;
   background-color: @yellow;
 }
 
 #clock {
-  color: #0C0E14;
   background-color: @peach;
 }
 
 #custom-powermenu {
-  color: #0C0E14;
   padding: 0px 25px 0px 20px;
   margin: 7px 20px 10px 0px;
   background-color: @maroon;
 }
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-
 
 @keyframes blink {
   to {
@@ -157,5 +130,3 @@ window#waybar.hidden {
 label:focus {
   background-color: #000000;
 }
-
-

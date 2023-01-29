@@ -1,9 +1,8 @@
 {
-  // NOTE: Icons: https://github.com/Alexays/Waybar/issues/350
-    "height": 50, // Waybar height (to be removed for auto height)
+    "height": 50, 
     "layer": "top",
     "position": "top",
-    "spacing": 7, // Gaps between modules (4px)
+    "spacing": 7,
     "modules-left": ["custom/launcher", "cpu", "temperature", "backlight", "custom/dunst"],
     "modules-center": ["wlr/workspaces"],
     "modules-right": ["pulseaudio", "network", "battery", "clock", "custom/powermenu"],
@@ -12,7 +11,6 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        //"format": "{icon}",
         "persistent_workspaces": {
             "1": [],
             "2": [],
@@ -27,43 +25,23 @@
         }
     },
     
-    "hyprland/window": {
-        "format": "{}"
-    },
-
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-
-    "clock": {
-        "format-alt": "<span> </span> {:%a %b %d}",
-        "format": "<span> </span> {:%I:%M %p}"
-    },
-    
     "custom/launcher": {
         "interval": "once",
         "format": "",
-        "on-click": "wofi --show drun --columns 2 -I -s ~/.config/wofi/style.css"
+        "on-click": "wofi --show drun --columns 2 -I -s ~/.config/wofi/style.css",
+        "tooltip": false
       },
 
     "cpu": {
       "interval": 10,
-      "format": "  {}%",
+      "format": "  {}%",
       "max-length": 10
     },
 
-    "memory": {
-        "interval": 30,
-        "format": "  {}%",
-        "format-alt":" {used:0.1f}G",
-        "max-length": 10
-    },
-
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "format": " {temperatureC}°C",
-	"on-click": "psensor"
+	    "on-click": "psensor"
     },
 
     "backlight": {
@@ -75,32 +53,18 @@
         "on-scroll-down": "brightnessctl set +40"
     },
 
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-
-        "format-wifi": "直  {signalStrength}%",
-        // "format": " <span color='#bf616a'> </span>",
-        // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        // "format-ethernet": " {ifname}",
-        "format-ethernet": " wired",
-        "format-disconnected": "睊 ",
-        "on-click": "bash ~/.config/wofi/wifimenu.sh",
-        // "format-wifi": "{essid} ({signalStrength}%) ",
-        // "format-ethernet": "{ipaddr}/{cidr} ",
-        // "tooltip-format": "{ifname} via {gwaddr} ",
-        // "format-linked": "{ifname} (No IP) ",
-        // "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/dunst.sh",
+        "on-click": "dunstctl set-paused toggle",
+        "restart-interval": 1,
+        "tooltip": false
     },
 
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        // "format": "{volume}% {icon} {format_source}",
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "婢",
-        // "format-source": "{volume}% ",
-        // "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -111,27 +75,14 @@
             "default": ["", "", ""]
         },
         "on-click-right": "pavucontrol",
-	"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
-   
-    "custom/powermenu": {
-        "format": "",
-        "on-click": "bash ~/.config/wofi/powermenu.sh"
-    }, 
 
-   "custom/dunst": {
-        "exec": "~/.config/waybar/scripts/dunst.sh",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1
-    },
-   
-   "custom/spotify": {
-    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
-    "format": "{}  ",
-    "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-double-click": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "network": {
+        "format-wifi": "直  {signalStrength}%",
+        "format-ethernet": " wired",
+        "format-disconnected": "睊 ",
+        "on-click": "sh ~/.config/wofi/wifimenu.sh"
     },
 
     "battery": {
@@ -152,11 +103,15 @@
       "format-full": "  {capacity}%",
       "format-icons": [" ", " ", " ", " ", " "]
     },
-    
-    "custom/weather": {
-      "exec": "python3 ~/.config/waybar/scripts/weather.py",
-      "restart-interval": 300,
-      "return-type": "json",
-      "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/a319796a4173829988d68c4e3a5f90c1b6832667ea7aaa201757a1c887ec667a"
-    },   
+
+    "clock": {
+        "format-alt": "<span> </span> {:%a %b %d}",
+        "format": "<span> </span> {:%I:%M %p}"
+    },
+
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "bash ~/.config/wofi/powermenu.sh",
+        "tooltip": false
+    }
 }
