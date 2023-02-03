@@ -11,6 +11,8 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
         "persistent_workspaces": {
             "1": [],
             "2": [],
@@ -34,12 +36,12 @@
 
     "cpu": {
       "interval": 10,
-      "format": "  {}%",
+      "format": "  {usage}%",
       "max-length": 10
     },
 
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
         "format": " {temperatureC}°C",
 	    "on-click": "psensor"
     },

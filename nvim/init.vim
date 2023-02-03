@@ -68,6 +68,8 @@ Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
+
+Plug 'elkowar/yuck.vim'
 call plug#end()
 
 set completeopt=menu,menuone,noselect
