@@ -1,0 +1,119 @@
+configuration {
+	font:							"SFPro 15";
+    show-icons:                     true;
+	icon-theme: 					"Papirus";
+    display-drun: 					"";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @crust;
+    text-color:                     @text;
+	border:							3px;
+	border-color:					@sky;
+    border-radius:                  15px;
+	width:							20%;
+    location:                       center;
+    margin:                         5px;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+prompt {
+    enabled: 						true;
+	padding: 						5px 5px 5px 5px;
+	background-color: 				@green;
+	text-color: 					@red;
+}
+
+textbox-prompt-colon {
+	padding: 						8px 7px 4px 7px;
+	background-color: 				@mantle;
+	text-color: 					@text;
+	expand: false;
+	str: "";
+	font:							"fontawesome 15";
+}
+
+entry {
+    background-color:               @mantle;
+    text-color:                     @text;
+    placeholder-color:              @subtext1;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Calculate";
+	padding: 						6px;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, entry ];
+    background-color:               @mantle;
+    text-color:                     @subtext1;
+    expand:                         false;
+	border:							1px;
+    border-radius:                  8px;
+	border-color:					@subtext1;
+    margin:                         5px;
+    padding:                        5px;
+}
+
+listview {
+    background-color:               @crust;
+    padding:                        5px;
+    columns:                        1;
+    lines:                          10;
+    spacing:                        6px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @crust;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@teal;
+    children:                       [ inputbar, listview ];
+    spacing:                       	6px;
+    padding:                        6px;
+}
+
+element {
+    background-color:               @crust;
+    text-color:                     @subtext1;
+    orientation:                    horizontal;
+    border-radius:                  0px;
+	padding: 						8px 5px 8px -20px;
+}
+
+element-icon {
+    background-color:               transparent;
+    text-color:               		inherit;
+    size:                           24px;
+    border:                         0px;
+}
+
+element-text {
+    background-color:               transparent;
+    text-color:               		inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 2.5px 0px 2.5px;
+}
+
+element selected {
+    background-color:               @teal;
+    text-color:                     @crust;
+	border:							0px 0px 0px 0px;
+    border-radius:                  8px;
+    border-color:                  	@teal;
+}

@@ -31,7 +31,7 @@ window#waybar.hidden {
   border-radius: 8px;
   padding: 0px 10px 0px 10px;
   margin: 7px 5px 10px 5px;
-  border: 1px solid @border;
+  border: 1px solid @subtext1;
 }
 
 #workspaces button:hover {

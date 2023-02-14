@@ -2,6 +2,7 @@
     "height": 50, 
     "layer": "top",
     "position": "top",
+    "output": "eDP-1",
     "spacing": 7,
     "modules-left": ["custom/launcher", "cpu", "temperature", "backlight", "custom/dunst"],
     "modules-center": ["wlr/workspaces"],
@@ -41,18 +42,20 @@
     },
 
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-        "format": " {temperatureC}°C",
-	    "on-click": "psensor"
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+	"input-filename": "temp1_input",
+	"format": " {temperatureC}°C",
+	"on-click": "psensor"
     },
 
     "backlight": {
-        "device": "DP-1",
+        "device": "nvidia_0",
+	"max-length": "4",
         "format": "{icon}  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "on-click": "",
-        "on-scroll-up": "brightnessctl set 40-",
-        "on-scroll-down": "brightnessctl set +40"
+        "on-scroll-up": "brightnessctl set 10%-",
+        "on-scroll-down": "brightnessctl set +10%"
     },
 
     "custom/dunst": {

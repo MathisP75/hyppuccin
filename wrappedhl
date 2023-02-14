@@ -3,30 +3,28 @@
 cd ~
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-#export GBM_BACKEND=nvidia-drm
+# export GBM_BACKEND=nvidia-drm
 export WLR_NO_HARDWARE_CURSORS=1
-export LIBVA_DRIVER_NAME=nvidia
 export XDG_SESSION_TYPE=wayland
 export GTK_THEME=Catppuccin-Mocha-Standard-Teal-Dark
 export GTKTHEME=Catppuccin-Mocha-Standard-Teal-Dark
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=kvantum
+# export GDK_BACKEND="wayland,x11"
+#export LIBVA_DRIVER_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
-m=$(cat /sys/class/drm/card1-DP-1/status)
-n=$(cat /sys/class/drm/card1-DP-2/status)
+USBC=$(cat /sys/class/drm/card0-DP-1/status) # Display in USB C port
+DP=$(cat /sys/class/drm/card0-DP-2/status) # Display in Display Port
 
-if [ "$m" = 'disconnected' ] && [ "$n" = 'disconnected' ]; then
+if [ "$USBC" = 'disconnected' ] && [ "$DP" = 'disconnected' ]; then
 	export LAPTOP=1
 	export XCURSOR_SIZE=24
-	exec Hyprland
 else
 	export LAPTOP=0
-	export XCURSOR_SIZE=36
-	export WLR_DRM_DEVICES=/dev/dri/card1
-	exec Hyprland
+	export XCURSOR_SIZE=48
 fi
 
-
-
+exec Hyprland

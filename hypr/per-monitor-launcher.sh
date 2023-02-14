@@ -1,4 +1,6 @@
 #!/bin/sh
+pkill waybar
+pkill hyprpaper
 
 m=$(printenv LAPTOP)
 

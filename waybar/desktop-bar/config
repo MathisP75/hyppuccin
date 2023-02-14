@@ -2,6 +2,7 @@
   "height": 60, 
   "layer": "top",
   "position": "top",
+  "output": "DP-2",
   "spacing": 7,
   "modules-left": ["custom/launcher", "cpu", "temperature", "memory", "custom/dunst"],
   "modules-center": ["wlr/workspaces"],
@@ -41,7 +42,7 @@
   },
 
   "temperature": {
-      "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+      "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
       "format": " {temperatureC}°C",
     "on-click": "psensor"
   },

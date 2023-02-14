@@ -2,11 +2,11 @@
 
 entries="⭮ Reboot\n⏻ Shutdown\n⇠ Logout\n⏾ Suspend"
 
-selected=$(echo -e $entries|wofi --width 250 --height 260 --dmenu --hide-scroll --cache-file /dev/null | awk '{print tolower($2)}')
+selected=$(echo -e $entries|wofi --width 250 --height 260 --dmenu --hide_search=true --hide-scroll --cache-file /dev/null | awk '{print tolower($2)}')
 
 case $selected in
   logout)
-    swaymsg exit;;
+    exec hyprctl dispatch exit NOW;;
   suspend)
     exec systemctl suspend;;
   reboot)

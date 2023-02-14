@@ -39,7 +39,7 @@
 window {
     margin: 5px;
     background-color: @crust;
-    border: 4px solid @teal;
+    border: 3px solid @sky;
     border-radius: 15px;
 }
 
@@ -49,11 +49,12 @@ window {
 }
 
 #input {
-    margin: 20px 10px 20px 10px;
-    background-color: @crust;
+    margin: 10px 10px 20px 10px;
+    background-color: @mantle;
+    color: @subtext1;
     border-radius: 8px;
     padding: 5px;
-   border: 1px solid @subtext0; 
+    border: 1px solid @subtext1; 
 }
 
 #inner-box {
@@ -75,8 +76,6 @@ window {
 #entry {
     border: none;
     border-radius: 8px;
-    /*background-color: @mantle;
-    margin: 8px 0px 0px 0px;*/
 }
 
 
